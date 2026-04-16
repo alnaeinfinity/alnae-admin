@@ -859,17 +859,25 @@ g('overlay-detail')?.addEventListener('click',e=>{if(e.target===g('overlay-detai
 </script>
 <script>
 function checkLogin() {
-  const code = document.getElementById("login-code").value;
+  <script>
+function checkLogin() {
+  const code = document.getElementById("login-code").value.trim();
   const error = document.getElementById("login-error");
+  const loginPage = document.getElementById("page-login");
+  const dashboardPage = document.getElementById("page-dashboard");
 
   if (code === "Confident6L") {
     error.style.display = "none";
-    alert("Accès autorisé 💎");
 
-    // 👉 ici on affiche le dashboard
-    document.getElementById("page-login").style.display = "none";
-    document.getElementById("page-dashboard").style.display = "block";
+    if (loginPage) {
+      loginPage.classList.remove("active");
+      loginPage.style.display = "none";
+    }
 
+    if (dashboardPage) {
+      dashboardPage.style.display = "block";
+      dashboardPage.classList.add("active");
+    }
   } else {
     error.style.display = "block";
   }
