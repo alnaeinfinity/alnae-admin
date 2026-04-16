@@ -857,5 +857,23 @@ g('overlay-detail')?.addEventListener('click',e=>{if(e.target===g('overlay-detai
 
 })();
 </script>
+<script>
+function checkLogin() {
+  const code = document.getElementById("login-code").value;
+  const error = document.getElementById("login-error");
+
+  if (code === "Confident6L") {
+    error.style.display = "none";
+    alert("Accès autorisé 💎");
+
+    // 👉 ici on affiche le dashboard
+    document.getElementById("page-login").style.display = "none";
+    document.getElementById("page-dashboard").style.display = "block";
+
+  } else {
+    error.style.display = "block";
+  }
+}
+</script>
 </body>
 </html>
