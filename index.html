@@ -921,7 +921,7 @@ function checkLogin() {
 
 async function loadDashboard() {
   try {
-    const stats = await apiGet("/admin/stats?adminSecret=ALNAE-ADMIN-2026");
+    const stats = await apiGet("/admin/stats?secret=ALNAE-ADMIN-2026");
     console.log("Stats Render :", stats);
     alert("Connexion Render impossible");
   } catch (e) {
