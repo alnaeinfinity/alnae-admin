@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>ALNAÉ Admin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f2ec;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#error {
+    color: red;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Espace Confidente 🔐</h1>
+    <input type="password" id="password" placeholder="Code d'accès">
+    <button onclick="login()">Entrer</button>
+    <div id="error"></div>
+</div>
+
+<script>
+function login() {
+    const pass = document.getElementById("password").value;
+
+    if(pass === "Confident6L") {
+        window.location.href = "https://alnae-confidente-1.onrender.com/admin/orders";
+    } else {
+        document.getElementById("error").innerText = "Code incorrect";
+    }
+}
+</script>
+
+</body>
+</html>
