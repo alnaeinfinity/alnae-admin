@@ -923,7 +923,6 @@ async function loadDashboard() {
   try {
     const stats = await apiGet("/admin/stats?secret=ALNAE-ADMIN-2026");
     console.log("Stats Render :", stats);
-    alert("Connexion Render impossible");
   } catch (e) {
     console.error(e);
     console.error("Connexion Render impossible");
