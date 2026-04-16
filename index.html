@@ -859,6 +859,41 @@ g('overlay-detail')?.addEventListener('click',e=>{if(e.target===g('overlay-detai
 </script>
 
 <script>
+const API_BASE = "https://alnae-confidente-1.onrender.com";
+
+async function apiGet(path) {
+  const response = await fetch(API_BASE + path, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+
+  if (!response.ok) {
+    throw new Error("Erreur API GET " + path);
+  }
+
+  return await response.json();
+}
+
+async function apiPost(path, body) {
+  const response = await fetch(API_BASE + path, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(body)
+  });
+
+  if (!response.ok) {
+    throw new Error("Erreur API POST " + path);
+  }
+
+  return await response.json();
+}
+</script>
+
+<script>
 function checkLogin() {
   const code = document.getElementById("login-code").value.trim();
   const error = document.getElementById("login-error");
