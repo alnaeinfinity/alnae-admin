@@ -858,6 +858,56 @@ g('overlay-detail')?.addEventListener('click',e=>{if(e.target===g('overlay-detai
 })();
 </script>
 
+ <!-- PAGE NOUVELLE COMMANDE -->
+<div class="page" id="page-new-order" style="display:none;">
+
+  <div style="max-width:600px;margin:40px auto;padding:20px;background:#fff;border:1px solid #ddd;">
+
+    <h2>Nouvelle commande client</h2>
+
+    <div style="margin-bottom:15px;">
+      <label>Email client</label><br>
+      <input type="email" id="client-email" style="width:100%;padding:10px;">
+    </div>
+
+    <div style="margin-bottom:15px;">
+      <label>Prénom destinataire</label><br>
+      <input type="text" id="recipient-firstname" style="width:100%;padding:10px;">
+    </div>
+
+    <div style="margin-bottom:15px;">
+      <label>Genre</label><br>
+      <select id="recipient-gender" style="width:100%;padding:10px;">
+        <option value="femme">Femme</option>
+        <option value="homme">Homme</option>
+      </select>
+    </div>
+
+    <div style="margin-bottom:15px;">
+      <label>Événement</label><br>
+      <select id="event-type" style="width:100%;padding:10px;">
+        <option value="anniversaire">Anniversaire</option>
+        <option value="amour">Amour</option>
+        <option value="motivation">Motivation</option>
+      </select>
+    </div>
+
+    <button id="btn-generate-message" style="margin-top:10px;padding:10px 20px;">
+      Générer message IA
+    </button>
+
+    <div style="margin-top:15px;">
+      <textarea id="generated-message" style="width:100%;height:120px;"></textarea>
+    </div>
+
+    <button id="btn-create-order" style="margin-top:20px;padding:10px 20px;background:black;color:white;">
+      Créer la commande
+    </button>
+
+  </div>
+
+</div> 
+  
 <script>
 const API_BASE = "https://alnae-confidente-1.onrender.com";
 
@@ -928,6 +978,28 @@ async function loadDashboard() {
     console.error("Connexion Render impossible");
   }
 }
+  function showPage(pageId) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+    page.style.display = "none";
+  });
+
+  const target = document.getElementById(pageId);
+  if (target) {
+    target.style.display = "block";
+    target.classList.add("active");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btnNewOrder = document.getElementById("btn-new-order");
+
+  if (btnNewOrder) {
+    btnNewOrder.addEventListener("click", function () {
+      showPage("page-new-order");
+    });
+  }
+});
 </script>
 </body>
 </html>
